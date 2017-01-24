@@ -1,0 +1,420 @@
+@keyframes colorChange
+  0%
+    background-color: rgba(#bb95a1, 0.5)
+  30%
+    background-color: rgba(#993D5A, 0.5)
+  60%
+    background-color: rgba(#c7cf70, 0.5)
+  100%
+    background-color: rgba(#bb95a1, 0.5)
+
+$orange: darken(invert(#04284a), 40%)
+$blue: #04284a
+$system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+$sansHeadline: Nevis, "Avenir", "Futura", $system
+$sansBodytext: "Avenir", "Futura", "Glacial Indifference", $system
+
+html
+  font-size: 16px
+  max-width: 100vw
+
+*, *:before, *:after
+  box-sizing: border-box
+
+body
+  margin: 0
+  background-color: #bb95a1
+  max-width: 100vw
+
+body.animated
+  animation: colorChange 20s linear infinite
+
+video
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  object-fit: cover
+  filter: saturate(25%) contrast(150%) blur(6px) brightness(0.8)
+  z-index: -2
+  backface-visibility: hidden
+  pointer-events: none
+  overflow: hidden
+  opacity: 50%
+  will-change: transform
+
+#c
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  width: 100vw
+  height: 100vh
+  z-index: -1
+  opacity: 0.6
+  will-change: transform
+
+.c-home__title
+  width: 100vw
+  height: 100vh
+  background: linear-gradient(to bottom, rgba(#04284a, 1), rgba(#04284a, 0.9) 30%, rgba(#04284a, 0.6) 80%, rgba(255,255,255,0))
+  display: flex
+  flex-direction: column
+  justify-content: center
+  flex-wrap: wrap
+  align-content: center
+
+.c-home__title--background
+  width: 100vw
+  height: 100vh
+  position: absolute
+  top: 0
+  left: 0
+  mix-blend-mode: multiply
+  opacity: 0
+  transition: opacity 1.2s ease-in-out
+  @media (max-width: 600px)
+    display: none
+  svg
+    width: 100vw
+    height: 120vh
+    z-index: 0
+    opacity: 0.5
+
+.c-home__title--background.visible
+  opacity: 0.5
+
+.c-home__title--headline
+  width: 70vw
+  margin: 0 auto
+  text-align: center
+  font-size: 7.5rem
+  color: white
+  font-family: $sansHeadline
+  font-weight: 800
+  text-transform: uppercase
+  margin-bottom: 40px
+  z-index: 1
+  @media (max-width: 1200px)
+    font-size: 3.5rem
+    line-height: 70px
+  @media (max-width: 600px)
+    font-size: 2.5rem
+
+.c-home__title--quote
+  font-family: $sansHeadline
+  font-weight: 800
+  text-transform: uppercase
+  color: white
+  font-size: 1.5rem
+  line-height: 44px
+  width: 60vw
+  margin: 0 auto
+  z-index: 1
+  text-align: center
+  @media (max-width: 600px)
+    font-size: 1rem
+    line-height: 28px
+
+.c-intro--quote
+  font-family: $sansHeadline
+  font-weight: 800
+  text-transform: uppercase
+  color: white
+  font-size: 2rem
+  line-height: 54px
+  max-width: 60vw
+  min-width: 320px
+  padding: 5vh 3vw
+  border: 10px solid $blue
+  background-color: $blue
+  @media (max-width: 1200px)
+    font-size: 1.5rem
+    line-height: 36px
+  @media (max-width: 600px)
+    font-size: 1rem
+    line-height: 28px
+    max-width: 70vw
+
+
+.c-intro--attrib
+  font-family: $sansHeadline
+  font-weight: 800
+  text-transform: uppercase
+  color: white
+  font-size: 2rem
+  line-height: 54px
+  max-width: 60vw
+  text-align: right
+  padding: 0 5vw
+  @media (max-width: 1200px)
+    font-size: 1.5rem
+    line-height: 36px
+  @media (max-width: 600px)
+    font-size: 1rem
+    line-height: 28px
+    max-width: 70vw
+  &:after
+    content: ''
+    position: relative
+    display: inline-block
+    width: 70%
+    height: 10px
+    top: -20px
+    right: 0
+    background-color: $blue
+    @media (max-width: 1200px)
+      top: 0
+
+
+.c-chapter-slide
+  height: 120vh
+  width: 100vw
+  margin-top: -10vh
+  padding: 5vh 5vw
+  background-image: linear-gradient(rgba(#ffcc99, 0.3) 2px, transparent 2px), linear-gradient(90deg, rgba(#ffcc99, 0.3) 2px, transparent 2px), linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)
+  background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px
+  opacity: 0
+  transition: opacity 1.2s ease-in-out
+
+.c-chapter-slide.visible
+  opacity: 1
+
+.c-chapter-menu
+  position: absolute
+  top: 85vh
+  right: 0
+  width: calc(50px + 5vw)
+  display: flex
+  flex-direction: column
+  height: 80vh
+  margin-bottom: 5vh
+  align-items: center
+  justify-content: flex-start
+  opacity: 0
+  transition: opacity 1.2s ease-in-out
+  @media (max-width: 600px)
+    right: 20px
+
+.c-chapter-menu.sticky
+  position: fixed
+  top: 5vh
+  opacity: 1
+  will-change: transform
+  @media (max-width: 600px)
+    top: 85vh
+
+.c-chapter-menu__toggle
+  cursor: pointer
+  width: 70px
+  height: 70px
+  border-radius: 100%
+  overflow: hidden
+  border: 3px solid white
+  background-color: $blue
+  transition: opacity 0.3s linear
+  z-index: 10
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.3)
+  display: flex
+  .c-chapter__title
+    position: relative
+    height: auto
+    display: flex
+    align-items: center
+    h3
+      font-size: 2.5rem
+      transition: transform 0.3s ease-in-out
+      margin: 0 0
+      line-height: 20px
+
+.c-chapter-menu__toggle.js-revealed
+  h3
+    transform: rotate(45deg)
+    transform-origin: center
+
+.c-chapter-menu__toggle.js-revealed ~ .c-chapter__link
+  @for $i from 1 through 5
+    &:nth-of-type(#{$i})
+      transform: translateY(30px * $i)
+      @media (max-width: 600px)
+        transform: translateY(150px * -$i)
+      .c-chapter-button
+        box-shadow: 0px 8px 20px rgba(0,0,0,0.3)
+
+
+.c-chapter__link
+  cursor: pointer
+  opacity: 0.5
+  transition: opacity 0.3s linear
+  @media (max-width: 600px)
+    opacity: 1
+  &:hover
+    opacity: 1
+  @for $i from 1 through 5
+    &:nth-of-type(#{$i})
+      transform: translateY(70px * -$i)
+      transition: transform 150ms * $i ease-in-out
+
+.c-chapter__home
+  @extend .c-chapter__link
+
+.c-chapter__button
+  width: 70px
+  height: 70px
+  border-radius: 100%
+  overflow: hidden
+  border: 3px solid white
+  background-color: $blue
+  opacity: 1
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+
+.c-chapter__button.active
+  border: 3px solid $orange
+  opacity: 1
+  .c-chapter__title
+    color: $orange
+
+.c-chapter__title
+  color: white
+  font-family: $sansHeadline
+  font-weight: 800
+  position: absolute
+  z-index: 2
+  top: 0
+  left: 0
+  width: 70px
+  height: 70px
+  h3
+    width: 100%
+    text-align: center
+    height: 20px
+    margin: 0
+    margin-top: calc(50% - 10px)
+
+.c-chapter-text--container
+  max-width: 700px
+  min-width: 300px
+  margin: 100px auto
+  padding: 25px
+  background-color: rgba($blue, 0.9)
+
+.c-chapter-text
+  color: white
+  font-size: 1.15rem
+  line-height: 30px
+  font-family: $sansBodytext
+  letter-spacing: 0.1px
+  font-weight: 400
+  a
+    color: $orange
+
+.c-chapter-image--container
+  display: flex
+  max-width: 70vw
+  @media (max-width: 900px)
+    max-width: 80vw
+  @media (max-width: 600px)
+    max-width: 100vw
+
+
+
+.c-chapter-inline-image
+  max-width: 40vw
+  max-height: 40vw
+  object-fit: cover
+  @media (max-width: 600px)
+    min-width: 200px
+    min-height: 200px
+
+.c-chapter-image--caption
+  color: white
+  font-family: $sansHeadline
+  font-weight: 800
+  font-size: 2rem
+  line-height: 54px
+  max-width: 25vw
+  padding: 5vh 5vw
+  background-color: $blue
+  @media (max-width: 900px)
+    font-size: 1.5rem
+    line-height: 36px
+    max-width: 30vw
+  @media (max-width: 600px)
+    font-size: 1rem
+    line-height: 28px
+    min-width: 120px
+  &:after
+    content: ''
+    position: relative
+    display: inline-block
+    top: -20px
+    right: 0
+    width: 70%
+    height: 5px
+    background-color: $orange
+    @media (max-width: 600px)
+      top: 0
+  .c-chapter-image--credit
+    font-size: 16px
+    a
+      color: white
+      text-decoration: none
+      &:hover
+        color: $orange
+
+.c-chapter-embed--container
+  max-width: 100vw
+  height: auto
+  iframe
+    max-width: 100vw
+    height: auto
+
+.c-next
+  color: #fff
+  font-family: $sansHeadline
+  font-weight: 800
+  font-size: 2rem
+  line-height: 54px
+  max-width: 35vw
+  padding: 5vh 5vw
+  background-color: $blue
+  @media (max-width: 1200px)
+    font-size: 1.5rem
+    line-height: 36px
+    max-width: 60vw
+  @media (max-width: 600px)
+    font-size: 1rem
+    line-height: 28px
+    max-width: 70vw
+    visibility: hidden
+    pointer-events: none
+
+.c-next__button
+  color: white
+  text-decoration: none
+  transition: color 0.3s ease-in-out
+  &:after
+    content: ''
+    position: relative
+    display: block
+    top: 0
+    right: 0
+    width: 70%
+    height: 5px
+    background-color: $orange
+    transform: scaleX(0)
+    transform-origin: left
+    transition: transform 0.3s ease-in-out
+  &:hover
+    cursor: pointer
+    color: $orange
+    &:after
+      color: $orange
+      transform: scaleX(1)

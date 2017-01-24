@@ -1,0 +1,38 @@
+{
+	"chapters": [
+		{		
+	    "title": "Intimate Structures",
+	    "path": "index.html",
+	    "video_path": "assets/video/xen.mp4",
+	    "number": "0"
+	  },
+
+		{
+	    "title": "The Convent of Sainte Marie de la Tourette",
+	    "path": "tourette.html",
+	    "video_path": "assets/video/tourette.mp4",
+	    "number": "1"
+	  },
+
+	  {
+	    "title": "The Philips Pavilion",
+	    "path": "pavillion.html",
+	    "video_path": "assets/video/pav.mp4",
+	    "number": "2"
+	  },
+
+	  {
+	    "title": "The Polytopes",
+	    "path": "polytopes.html",
+	    "video_path": "assets/video/polytope.mp4",
+	    "number": "3"
+	  },
+
+	  {
+	    "title": "Natural Forces",
+	    "path": "conclusion.html",
+	    "video_path": "assets/video/xen2.mp4",
+	    "number": "4"
+	  }
+  ]
+}
